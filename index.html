@@ -90,23 +90,23 @@
       width: min(1200px, calc(100vw - 40px));
       height: min(calc(min(1200px, 100vw - 40px) * 9 / 16), calc(100vh - 84px));
       overflow: hidden;
-      padding: 28px 40px 24px;
+      padding: 44px 52px 40px;
       min-height: 0;
-      justify-content: flex-start;
+      justify-content: space-between;
     }
-    body.share .slide { height: min(calc(min(1200px, 100vw - 40px) * 9 / 16), calc(100vh - 56px)); }
+    body.share .slide { height: min(calc(min(1200px, 100vw - 40px) * 9 / 16), calc(100vh - 56px)); padding: 48px 56px 44px; }
     body.present .slide.is-on { display: flex; }
     body.present .slide-num { display: none; }
     body.present .h1 { font-size: clamp(30px, 3.8vw, 48px); }
     body.present .title-slide .h1 { font-size: clamp(32px, 4.2vw, 52px); }
-    body.present .h2 { font-size: clamp(22px, 2.6vw, 32px); }
-    body.present .lede { margin-top: 8px; font-size: 15px; line-height: 1.35; max-width: 42em; }
-    body.present .body { margin-top: 16px; }
-    body.present .caption, body.present .note { margin-top: 8px; font-size: 13px; line-height: 1.35; }
+    body.present .h2 { font-size: clamp(24px, 2.8vw, 34px); }
+    body.present .lede { margin-top: 12px; font-size: 16px; line-height: 1.4; max-width: 42em; }
+    body.present .body { margin-top: 0; }
+    body.present .caption, body.present .note { margin-top: 0; font-size: 13px; line-height: 1.4; }
     body.present .logo { height: 36px; }
-    body.present .pocket-num { font-size: clamp(36px, 5vw, 56px); }
-    body.present .fuel-num { font-size: clamp(40px, 6vw, 64px); }
-    body.present .price { font-size: 32px; }
+    body.present .pocket-num { font-size: clamp(44px, 6vw, 72px); }
+    body.present .fuel-num { font-size: clamp(56px, 8vw, 88px); }
+    body.present .price { font-size: 40px; }
     body.present .rungs, body.share .rungs { grid-template-columns: repeat(4, 1fr); }
     body.share .review-only { display: none !important; }
     .share-only { display: none !important; }
@@ -114,18 +114,24 @@
 
     .slide {
       position: relative;
-      display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch;
+      display: flex; flex-direction: column; justify-content: space-between; align-items: stretch;
       text-align: left;
       aspect-ratio: 16 / 9;
       width: 100%;
-      padding: var(--space-5) 48px 32px;
+      padding: 48px 56px 44px;
       background: var(--surface);
       border: 1px solid var(--line);
       border-radius: 16px;
       overflow: hidden;
     }
-    .slide.title-slide { padding-top: 72px; padding-bottom: 40px; }
-    .slide.title-slide .logo-slot { margin-top: var(--space-4); }
+    .slide > header { flex: 0 0 auto; }
+    .slide > .caption { flex: 0 0 auto; margin-top: 20px; }
+    .stage {
+      flex: 1 1 auto;
+      display: flex; flex-direction: column; justify-content: center;
+      min-height: 0;
+    }
+    .stage .caption { margin-top: 16px; }
     .slide-num {
       position: absolute; top: 16px; right: 20px;
       color: var(--dim); font-size: 11px; letter-spacing: .14em;
@@ -140,27 +146,35 @@
     .h2 { font-size: clamp(26px, 3.2vw, 36px); font-weight: 900; line-height: 1.08; letter-spacing: -.03em; max-width: 28ch; }
     .lede { margin-top: 12px; max-width: 42em; color: var(--muted); font-size: 17px; line-height: 1.45; }
     .em { color: var(--accent-2); }
-    .logo-slot { display: flex; justify-content: flex-start; }
+    .logo-slot { flex: 0 0 auto; display: flex; justify-content: flex-start; margin-top: 28px; }
     .logo { height: 40px; width: auto; }
 
-    .body { margin-top: var(--space-3); min-height: 0; }
-    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .body {
+      flex: 1 1 auto;
+      display: flex; flex-direction: column; justify-content: center;
+      gap: 22px;
+      margin-top: 28px;
+      min-height: 0;
+    }
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-content: center; }
+    .body.split { display: grid; }
     .split h3 { font-size: 13px; font-weight: 700; color: var(--accent-2); margin-bottom: 8px; }
     .split p { color: var(--muted); font-size: 15px; line-height: 1.45; }
     .split .you p { color: #d4d4d8; }
     .split .us { padding-left: var(--space-3); border-left: 1px solid var(--accent-line); }
 
-    .beats { display: flex; flex-direction: column; gap: 14px; max-width: 52em; }
+    .beats { display: flex; flex-direction: column; justify-content: center; gap: 22px; max-width: 52em; }
+    .body.beats { display: flex; }
     .beat h3 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
     .beat p { color: var(--muted); font-size: 14px; line-height: 1.4; }
     .beat.win h3 { color: var(--text); }
 
     .punch {
-      margin-top: 16px; font-size: 16px; font-weight: 700; line-height: 1.35; max-width: 46em;
+      font-size: 17px; font-weight: 700; line-height: 1.4; max-width: 46em;
     }
     .now-next {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
-      margin-top: 20px; padding-top: 16px;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+      padding-top: 20px;
       border-top: 1px solid var(--line);
     }
     .now-next b { display: block; font-size: 18px; font-weight: 900; letter-spacing: -.02em; }
@@ -168,8 +182,9 @@
 
     .fuel {
       display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 32px; align-items: start;
+      gap: 40px; align-items: center; align-content: center;
     }
+    .body.fuel { display: grid; }
     .fuel-num {
       font-size: clamp(48px, 7vw, 80px); font-weight: 900; letter-spacing: -.05em; line-height: .9;
       font-variant-numeric: tabular-nums;
@@ -179,13 +194,15 @@
     .fuel-points h3 { font-size: 15px; margin-bottom: 4px; }
     .fuel-points p { color: var(--muted); font-size: 14px; line-height: 1.4; }
 
-    .proof { display: grid; grid-template-columns: 140px 1fr; gap: 24px; align-items: start; }
+    .proof { display: grid; grid-template-columns: 140px 1fr; gap: 32px; align-items: center; align-content: center; }
+    .body.proof { display: grid; }
     .proof-date { font-size: 15px; font-weight: 700; color: var(--accent-2); line-height: 1.3; padding-top: 2px; }
     .proof-copy h3 { font-size: 16px; margin-bottom: 6px; }
     .proof-copy p { color: var(--muted); font-size: 15px; line-height: 1.4; }
     .proof-copy + .proof-copy { margin-top: 16px; }
 
-    .trial { display: flex; flex-direction: column; gap: 20px; }
+    .trial { display: flex; flex-direction: column; justify-content: center; gap: 28px; }
+    .body.trial { display: flex; }
     .steps {
       list-style: none;
       display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px;
@@ -200,29 +217,27 @@
 
     .rate-row {
       display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
-      margin-top: 12px;
     }
     .rate-group { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
     .rate-row p { color: var(--muted); font-size: 13px; }
     .rate-toggles { display: flex; gap: 8px; }
-    .pocket-hero { margin-top: 16px; }
+    header .rate-row { margin-top: 16px; }
     .pocket-kicker {
       color: var(--dim); font-size: 12px; font-weight: 700;
       letter-spacing: .12em; text-transform: uppercase;
     }
     .pocket-num {
-      margin-top: 4px;
-      font-size: clamp(44px, 6.2vw, 68px);
+      margin-top: 6px;
+      font-size: clamp(48px, 6.8vw, 76px);
       font-weight: 900; letter-spacing: -.04em; line-height: 1;
       color: var(--money); font-variant-numeric: tabular-nums;
     }
     .pocket-why {
-      margin-top: 8px; max-width: 42em;
-      color: var(--muted); font-size: 15px; line-height: 1.4;
+      margin-top: 10px; max-width: 42em;
+      color: var(--muted); font-size: 16px; line-height: 1.4;
     }
     .rungs {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
-      margin-top: 16px;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
     }
     .rung {
       border: 1px solid var(--line);
@@ -235,14 +250,14 @@
     .rung-deals { color: var(--muted); font-size: 12px; margin-top: 4px; }
     .rung-month { margin-top: 8px; font-size: 20px; font-weight: 800; color: var(--money); font-variant-numeric: tabular-nums; }
 
-    .caption { margin-top: 12px; color: var(--muted); font-size: 14px; line-height: 1.4; max-width: 54em; }
-    .note { margin-top: 8px; color: var(--dim); font-size: 12px; line-height: 1.4; max-width: 54em; }
+    .caption { color: var(--muted); font-size: 14px; line-height: 1.4; max-width: 54em; }
+    .note { color: var(--dim); font-size: 12px; line-height: 1.4; max-width: 54em; }
     .math { font-variant-numeric: tabular-nums; }
 
-    .ops-why { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); }
+    .ops-why { padding-top: 14px; border-top: 1px solid var(--line); }
     .ops-why p { color: var(--muted); font-size: 14px; line-height: 1.4; max-width: 54em; }
 
-    .close-meta { margin-top: var(--space-3); }
+    .close-meta { margin-top: 24px; }
     .close-meta .name { font-size: 18px; font-weight: 700; }
     .close-meta .org { color: var(--muted); margin-top: 4px; font-size: 14px; }
     .close-meta a { display: inline-block; margin-top: 8px; color: var(--accent-2); }
@@ -267,7 +282,7 @@
       .payfirst .fig + .fig { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); }
       .chrome { flex-wrap: wrap; }
       .h1 { font-size: 32px; max-width: none; }
-      body.present .slide { height: calc(100vh - 96px); overflow: hidden; padding: 20px 16px 16px; }
+      body.present .slide { height: calc(100vh - 96px); overflow: hidden; padding: 28px 22px 24px; }
     }
     @media (prefers-reduced-motion: reduce) {
       .chip, .nav-btn { transition: none; }
@@ -299,7 +314,7 @@
 
     <section class="slide title-slide is-on" data-slide="0">
       <span class="slide-num">01 / 10</span>
-      <div>
+      <div class="stage">
         <h1 class="h1">Why a partnership makes sense.</h1>
         <p class="lede">You already run a successful VA team. We built cream-of-the-crop lists. Thirty days together, then we decide whether a partnership belongs here — and how we vet it so it actually makes sense for both of us.</p>
       </div>
@@ -438,8 +453,6 @@
       <header>
         <h2 class="h2">We pay you up front plus 10%.</h2>
         <p class="lede">Start team is 6 callers / 3 closers. Closers stay at 1 per 2 callers, through 60 / 30. Ideally 6 months up front. If we absolutely crush it, we sign a year.</p>
-      </header>
-      <div class="body">
         <div class="rate-row">
           <div class="rate-group">
             <p>Assignment fee</p>
@@ -456,6 +469,8 @@
             </div>
           </div>
         </div>
+      </header>
+      <div class="body">
         <div class="pocket-hero" id="hero">
           <p class="pocket-kicker">Your month</p>
           <p class="pocket-num math" id="hero-month">$14,070</p>
@@ -488,7 +503,7 @@
 
     <section class="slide title-slide" data-slide="9">
       <span class="slide-num">10 / 10</span>
-      <div>
+      <div class="stage">
         <h1 class="h1">We partner up and start closing deals like madmen.</h1>
         <p class="lede">A six-month plan, in general, to bring this to a <span class="em">minimum of six figures per month</span> on assignments. As we grow, potential to partner or affiliate if we sell the software — as we discussed. It all starts with trusting one another, bringing both skill sets, a 30-day sprint, and growing from there.</p>
         <p class="caption">We have both worked extremely hard. We deserve to take care of our families with true and honest partners who want the same thing. We are looking forward to working with you and would love to get this started.</p>
