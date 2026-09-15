@@ -319,7 +319,7 @@
       <div>
         <p class="kicker">The handshake</p>
         <h2 class="h2">Thirty days. No long-term decision on day one.</h2>
-        <p class="lede">We suggest <span class="em">3 callers and 2 closers</span> unless you want to put up more. We thought we would start there. After 30 days we pick 3, 6, or 12 months — and we decide if we expand the team, or we decide we do not work together.</p>
+        <p class="lede">We suggest <span class="em">6 callers and 3 closers</span> unless you want to put up more. We thought we would start there. After 30 days we pick 3, 6, or 12 months — and we decide if we expand the team, or we decide we do not work together.</p>
       </div>
       <div class="grid-3">
         <div class="card"><h3>Days 1–30</h3><p>Same team. Same lists. We see what actually closes. Not a spreadsheet guess.</p></div>
@@ -339,7 +339,7 @@
         <div class="card win">
           <h3>Off the top</h3>
           <p class="price math" style="margin-top:8px">$5,070</p>
-          <p>Three callers + two closers. Paid from deal one, first.</p>
+          <p>6 callers + 3 closers. Paid from deal one, first.</p>
         </div>
         <div class="card">
           <h3>Then 10% of that fee</h3>
@@ -355,14 +355,13 @@
       <div>
         <p class="kicker">If the 30 days work</p>
         <h2 class="h2" style="font-size:clamp(26px,3.4vw,40px)">We pay you up front plus 10%.</h2>
-        <p class="caption" style="margin-top:8px">Ideally we want <strong style="color:#f4f4f5">6 months up front</strong>. If we absolutely crush it, we sign a year. We need systems in place first. We do not think you end up on 3 months — it is on the page so we have the idea. Closers stay at 2 per 3 callers. Toggle how many closings each closer does; the whole table moves.</p>
+        <p class="caption" style="margin-top:8px">Ideally we want <strong style="color:#f4f4f5">6 months up front</strong>. If we absolutely crush it, we sign a year. We need systems in place first. We do not think you end up on 3 months — it is on the page so we have the idea. Closers stay at 1 per 2 callers, through 60 callers / 30 closers. Toggle 1 or 2 closings per closer; the whole table moves.</p>
       </div>
       <div class="rate-row">
         <p>Closings per closer</p>
         <div class="rate-toggles" id="rate-toggles" role="group" aria-label="Closings per closer">
           <button class="chip" type="button" data-ppc="1">1</button>
           <button class="chip is-on" type="button" data-ppc="2" aria-pressed="true">2</button>
-          <button class="chip" type="button" data-ppc="3">3</button>
         </div>
       </div>
       <div class="table-wrap">
@@ -383,7 +382,7 @@
           <tbody id="pay-body"></tbody>
         </table>
       </div>
-      <p class="note">Team fee is paid at the start of the month after we lock. 10% is on top, every time we dispo. Green is your month. Floor $10,000 · average $15,000. Start is 3 callers / 2 closers.</p>
+      <p class="note">Team fee is paid at the start of the month after we lock. 10% is on top, every time we dispo. Green is your month. Floor $10,000 · average $15,000. Start is 6 callers / 3 closers.</p>
     </section>
 
     <section class="slide" data-slide="8">
@@ -437,18 +436,18 @@
   <div class="dots" id="dots"></div>
 
   <script>
-    const TEAM_AT_3 = 5070;
-    const CALLERS = [3, 6, 9, 12, 15, 18, 21, 24, 27, 30];
+    const TEAM_AT_6 = 5070;
+    const CALLERS = [6, 12, 18, 24, 30, 36, 42, 48, 54, 60];
     const money = (n) => "$" + Math.round(n).toLocaleString("en-US");
 
     function fillPayTable(ppc) {
       const body = document.getElementById("pay-body");
       if (!body) return;
       body.innerHTML = CALLERS.map((callers, idx) => {
-        const scale = callers / 3;
-        const closers = 2 * scale;
+        const scale = callers / 6;
+        const closers = callers / 2;
         const deals = closers * ppc;
-        const team = TEAM_AT_3 * scale;
+        const team = TEAM_AT_6 * scale;
         const ten10 = deals * 10000 * 0.1;
         const ten15 = deals * 15000 * 0.1;
         return `<tr class="${idx === 0 ? "start" : ""}">
