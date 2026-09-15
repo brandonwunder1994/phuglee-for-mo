@@ -474,9 +474,9 @@
         <div class="pocket-hero" id="hero">
           <p class="pocket-kicker">Your month</p>
           <p class="pocket-num math" id="hero-month">$14,070</p>
-          <p class="pocket-why" id="hero-why">6 callers + 3 closers. Team $5,070 plus 10% of 6 deals at $15,000.</p>
+          <p class="pocket-why" id="hero-why">3 closers × 2 = 6 deals. Team $5,070 plus 10% at $15,000.</p>
         </div>
-        <div class="rungs" id="rungs" aria-label="Scale at 6, 12, 30, and 60 callers"></div>
+        <div class="rungs" id="rungs" aria-label="Scale at 6/3, 12/6, 30/15, and 60/30"></div>
         <p class="note">Team fee is paid at the start of the month after we lock. 10% is on top, every time we dispo. Green is your month.</p>
       </div>
     </section>
@@ -524,18 +524,24 @@
   <script>
     const TEAM_AT_6 = 5070;
     const CUT = 0.1;
-    const RUNGS = [6, 12, 30, 60];
+    const START_CLOSERS = 3;
+    const RUNGS = [
+      { callers: 6, closers: 3 },
+      { callers: 12, closers: 6 },
+      { callers: 30, closers: 15 },
+      { callers: 60, closers: 30 }
+    ];
     const money = (n) => "$" + Math.round(n).toLocaleString("en-US");
 
     let ppc = 2;
     let fee = 15000;
 
-    function row(callers) {
-      const closers = callers / 2;
+    function row(team) {
+      const closers = team.closers;
       const deals = closers * ppc;
-      const team = TEAM_AT_6 * (callers / 6);
+      const pay = TEAM_AT_6 * (closers / START_CLOSERS);
       const ten = deals * fee * CUT;
-      return { callers, closers, deals, team, ten, month: team + ten };
+      return { callers: team.callers, closers, deals, team: pay, ten, month: pay + ten };
     }
 
     function renderMoney() {
@@ -550,22 +556,22 @@
         b.setAttribute("aria-pressed", String(on));
       });
 
-      const start = row(6);
+      const start = row(RUNGS[0]);
       document.getElementById("hero-month").textContent = money(start.month);
       document.getElementById("hero-why").textContent =
-        "6 callers + 3 closers. Team " + money(start.team) +
-        " plus 10% of " + start.deals + " deal" + (start.deals === 1 ? "" : "s") +
-        " at " + money(fee) + ".";
+        start.closers + " closers × " + ppc + " = " + start.deals +
+        " deal" + (start.deals === 1 ? "" : "s") +
+        ". Team " + money(start.team) + " plus 10% at " + money(fee) + ".";
 
       const el = document.getElementById("rungs");
       if (!el) return;
-      el.innerHTML = RUNGS.map((callers, idx) => {
-        const r = row(callers);
+      el.innerHTML = RUNGS.map((team, idx) => {
+        const r = row(team);
         const tag = idx === 0 ? `<span class="rung-tag">Start</span>` : "";
         return `<article class="rung${idx === 0 ? " start" : ""}">
           ${tag}
           <p class="rung-size">${r.callers} / ${r.closers}</p>
-          <p class="rung-deals">${r.deals} deal${r.deals === 1 ? "" : "s"}</p>
+          <p class="rung-deals">${r.closers} closers × ${ppc} = ${r.deals} deal${r.deals === 1 ? "" : "s"}</p>
           <p class="rung-month">${money(r.month)}</p>
         </article>`;
       }).join("");
