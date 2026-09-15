@@ -78,6 +78,8 @@
     body.present .slide.is-on { display: flex; }
     body.present .slide-num { display: none; }
     body.share .review-only { display: none !important; }
+    .share-only { display: none !important; }
+    body.share .share-only { display: inline !important; }
 
     .slide {
       position: relative;
@@ -411,7 +413,8 @@
       </div>
       <div class="foot">
         <img class="logo" src="https://www.phuglee.com/images/phuglee-text-logo.png?v=fp1" alt="">
-        <span>Private. Not for forwarding past Mo until you say so.</span>
+        <span class="review-only">Private draft — hide this line when you send the share link.</span>
+        <span class="share-only">Phuglee Data · two seats per county</span>
       </div>
     </section>
   </main>
