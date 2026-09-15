@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Phuglee Data — for Mo</title>
-  <meta name="description" content="Private note for Mo. His team, our lists. Thirty days, then a lock if it works.">
+  <meta name="description" content="Why a partnership makes sense. His VA team, our lists. Thirty days, then we decide together.">
   <meta name="robots" content="noindex,nofollow">
   <meta name="theme-color" content="#0a0a0b">
   <meta property="og:title" content="Phuglee Data — for Mo">
-  <meta property="og:description" content="You put up the team. We put up the lists. You get paid first.">
+  <meta property="og:description" content="You already run a successful VA team. We built cream-of-the-crop lists. This is whether a partnership belongs here.">
   <meta property="og:type" content="website">
   <link rel="icon" href="https://www.phuglee.com/favicon.ico?v=3">
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
@@ -25,6 +25,7 @@
       --accent-2: #60a5fa;
       --accent-soft: rgba(59, 130, 246, 0.14);
       --accent-line: rgba(59, 130, 246, 0.32);
+      --money: #34d399;
       --font: "Satoshi", system-ui, sans-serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -96,18 +97,18 @@
       position: absolute; top: 18px; right: 22px;
       color: var(--dim); font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
     }
-    .slide.pay { padding: 32px 40px 28px; min-height: 620px; justify-content: flex-start; }
+    .slide.pay { padding: 28px 40px 24px; min-height: 620px; justify-content: flex-start; }
     .kicker { color: var(--accent-2); font-size: 12px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
     .h1 { font-size: clamp(40px, 5.6vw, 68px); font-weight: 900; line-height: .95; letter-spacing: -.04em; }
     .h2 { font-size: clamp(30px, 4.2vw, 48px); font-weight: 900; line-height: 1.04; letter-spacing: -.03em; }
-    .lede { margin-top: 18px; max-width: 740px; color: var(--muted); font-size: 20px; line-height: 1.45; }
+    .lede { margin-top: 18px; max-width: 760px; color: var(--muted); font-size: 20px; line-height: 1.45; }
     .em { color: var(--accent-2); }
     .foot { display: flex; justify-content: space-between; gap: 16px; align-items: end; color: var(--dim); font-size: 13px; }
     .logo { height: 36px; width: auto; }
 
     .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 28px; }
     .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 28px; }
-    .grid-6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 24px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 20px; }
     .card {
       background: rgba(244,244,245,.03);
       border: 1px solid var(--line);
@@ -119,11 +120,10 @@
     .card.win { border-color: var(--accent-line); background: var(--accent-soft); }
     .card.win p, .card.win li { color: #d4d4d8; }
     .price { font-size: 34px; font-weight: 900; letter-spacing: -.03em; color: var(--text); }
+    .price.pocket { color: var(--money); }
     .price small { font-size: 14px; font-weight: 500; color: var(--muted); }
-    .big-stat { font-size: clamp(48px, 8vw, 84px); font-weight: 900; letter-spacing: -.05em; line-height: .9; }
-    .plus { color: var(--accent-2); font-weight: 800; margin: 0 8px; }
     .math { font-variant-numeric: tabular-nums; }
-    .caption { margin-top: 14px; color: var(--muted); font-size: 14px; line-height: 1.45; max-width: 820px; }
+    .caption { margin-top: 14px; color: var(--muted); font-size: 14px; line-height: 1.45; max-width: 860px; }
     .dots { display: none; }
     body.present .dots {
       display: flex; gap: 6px; position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%); z-index: 40;
@@ -133,12 +133,12 @@
     }
     .dots button.on { background: var(--accent); width: 22px; }
 
-    .table-wrap { margin-top: 18px; overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; }
+    .table-wrap { margin-top: 14px; overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; }
     .pay-table {
       width: 100%;
       border-collapse: collapse;
       font-variant-numeric: tabular-nums;
-      min-width: 720px;
+      min-width: 780px;
     }
     .pay-table th {
       text-align: left;
@@ -158,15 +158,24 @@
       color: var(--muted);
       white-space: nowrap;
     }
-    .pay-table td.his { color: var(--text); font-weight: 800; }
+    .pay-table td.his { color: var(--money); font-weight: 800; }
     .pay-table tr.start td { background: var(--accent-soft); color: var(--text); }
+    .pay-table tr.start td.his { color: var(--money); }
     .pay-table tr:last-child td { border-bottom: 0; }
     .note { margin-top: 12px; color: var(--dim); font-size: 13px; line-height: 1.4; }
+    .rate-row {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .rate-row p { color: var(--muted); font-size: 14px; }
+    .rate-toggles { display: flex; gap: 8px; flex-wrap: wrap; }
+    .status { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-2); margin-bottom: 6px; }
+    .status.wait { color: var(--dim); }
 
     @media (max-width: 860px) {
       .slide { padding: 32px 22px; min-height: 540px; }
       .slide.pay { padding: 28px 18px; }
-      .grid-2, .grid-3, .grid-6 { grid-template-columns: 1fr; }
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
       .chrome { flex-wrap: wrap; }
       .h1 { font-size: 38px; }
       body.present .slide { height: calc(100vh - 120px); overflow: auto; }
@@ -201,8 +210,8 @@
       <span class="slide-num">01 / 12</span>
       <div>
         <p class="kicker">Prepared for Mo</p>
-        <h1 class="h1" style="margin-top:18px">Why we’re even talking.</h1>
-        <p class="lede">You already run a real team. We already built the lists. This is not a pitch. It is whether those two things belong together, and how we split it so it stays fair.</p>
+        <h1 class="h1" style="margin-top:18px">Why a partnership makes sense.</h1>
+        <p class="lede">You already run a successful VA team. We built cream-of-the-crop lists. This is not a pitch. It is whether a partnership belongs here — and how we vet it so it actually makes sense for both of us.</p>
       </div>
       <div class="foot">
         <img class="logo" src="phuglee-text-logo.png" alt="">
@@ -213,18 +222,18 @@
     <section class="slide" data-slide="1">
       <span class="slide-num">02 / 12</span>
       <div>
-        <p class="kicker">The split</p>
-        <h2 class="h2">You have the team. We have the lists.</h2>
-        <p class="lede">Great data will still convert average callers. Great callers cannot save a dead list. Both of us put something real on the table.</p>
+        <p class="kicker">Our specialties</p>
+        <h2 class="h2">You have the VA team. We have the lists.</h2>
+        <p class="lede">Both of us put a specialty on the table and save the other a ton of time. Great data still converts with average callers. Great callers cannot save a dead list — and if they do, it is extremely hard and it takes a long time. Together we skyrocket closings.</p>
       </div>
       <div class="grid-2">
         <div class="card win">
           <h3>You</h3>
-          <p>Three callers and two closers to start. People who can actually work a seller. That is not a small thing to put up.</p>
+          <p>A real VA team. People who can work a seller. That is not a small thing to put up, and it is not something we want to spend years building ourselves.</p>
         </div>
         <div class="card">
           <h3>Us</h3>
-          <p>The software, and the six kinds of distressed-seller records we pull from county and city filings. Pre-foreclosure, probate, eviction, pre-lien, code violation, fire damage.</p>
+          <p>Specialized lists. Software that pulls <strong style="color:#f4f4f5">daily pre-foreclosures</strong>, <strong style="color:#f4f4f5">monthly code violations</strong>, <strong style="color:#f4f4f5">daily evictions and pre-liens</strong>. Months and thousands of hours to build and test so the files are actually accurate.</p>
         </div>
       </div>
     </section>
@@ -232,65 +241,96 @@
     <section class="slide" data-slide="2">
       <span class="slide-num">03 / 12</span>
       <div>
-        <p class="kicker">Not a skip-trace dump</p>
-        <h2 class="h2">This is not Goliath. It is not Data Syndicate.</h2>
-        <p class="lede">We already built exclusive county seats. Two investors per county. Hundreds to a thousand a month. Locked a quarter to a year. If every seat filled, that product is six figures a month in subscriptions. We are not guessing that the lists have value.</p>
+        <p class="kicker">Cream of the crop</p>
+        <h2 class="h2">What we actually hand a caller.</h2>
+        <p class="lede">Not every filing. The ones a person can still talk to — with enough meat on the bone, or a path even when the bone is thin.</p>
       </div>
       <div class="grid-3">
-        <div class="card"><h3>Exclusive seats</h3><p>Not a free-for-all. When a county is taken, it is taken. That is the machine we already sell.</p></div>
-        <div class="card"><h3>County seats, not everyone</h3><p>$497 to $997 a month depending on the county. City code data is separate. We do not spray the same file to a thousand dialers.</p></div>
-        <div class="card win"><h3>Honest</h3><p>We are not at full speed on every county and every code-violation city yet. Automation is still catching up. When all six types are running, the ceiling is your team — not the lists. Full-speed data can feed 30 callers. We start at 3.</p></div>
+        <div class="card win">
+          <h3>40%+ equity, on everything</h3>
+          <p>That filter applies across the lists. We are not sending underwater files and calling it a list.</p>
+        </div>
+        <div class="card">
+          <h3>Pre-foreclosures we take any</h3>
+          <p>Fat equity is a cash or assignment conversation. Minimal equity is subject-to. We do not throw those files away.</p>
+        </div>
+        <div class="card">
+          <h3>Distressed — homes and situations</h3>
+          <p>Beat-up houses, and well-kept houses sitting in a distressed situation that makes the seller motivated. A nice house is still worth the call.</p>
+        </div>
       </div>
     </section>
 
     <section class="slide" data-slide="3">
       <span class="slide-num">04 / 12</span>
       <div>
-        <p class="kicker">Cream of the crop</p>
-        <h2 class="h2">What we actually hand a caller.</h2>
-        <p class="lede">Not every filing. The ones a person can still talk to, with enough meat on the bone — or a path even when the bone is thin.</p>
+        <p class="kicker">Coverage, honestly</p>
+        <h2 class="h2">What is live today — and what is not.</h2>
+        <p class="lede">We already have more lead flow than a starting team can work. Adding the rest only gets better. We are not going to pretend a list is pulling if it is not.</p>
       </div>
-      <div class="grid-3">
-        <div class="card win"><h3>40%+ equity</h3><p>In the home. We are not sending you underwater files and calling it a list.</p></div>
-        <div class="card"><h3>A person or a trust</h3><p>100% independent or trust-owned. No banks. No servicers. Someone who can say yes.</p></div>
-        <div class="card"><h3>Distressed, or still worth the call</h3><p>A beat-up house, or a well-kept house we can still call. Distress is not the only door.</p></div>
+      <div class="grid-4">
+        <div class="card win">
+          <p class="status">Live · daily</p>
+          <h3>Pre-foreclosures — 370 counties</h3>
+          <p>Feeding the ledger today. About 50 more we are building. About 240 are parked behind a wall (pay, captcha, or no public list). Those are not “next month.”</p>
+        </div>
+        <div class="card win">
+          <p class="status">Live · monthly</p>
+          <h3>Code violations — 692 cities, 31 states</h3>
+          <p>Cities that have already sent us a list. The request map we work from is 574 cities in 16 states. Both numbers grow as more cities answer.</p>
+        </div>
+        <div class="card">
+          <p class="status wait">Built · not pulling yet</p>
+          <h3>Evictions — 19 counties ready</h3>
+          <p>Ohio, Arizona, Texas, Oklahoma, Arkansas. Daily pull is not on yet. When it is, it is a new stream — not something we are counting as live today.</p>
+        </div>
+        <div class="card">
+          <p class="status wait">Working on it · not live</p>
+          <h3>Pre-liens, probate, fire</h3>
+          <p>Pre-liens: no county driver live yet. Probate: started (a handful of areas pulling; 122 counties already wired). Fire damage is not its own pull — it shows up inside city lists when the city tagged fire.</p>
+        </div>
       </div>
     </section>
 
     <section class="slide" data-slide="4">
       <span class="slide-num">05 / 12</span>
       <div>
-        <p class="kicker">Pre-foreclosure</p>
-        <h2 class="h2">Fat equity or thin. We can work both.</h2>
-        <p class="lede">Fat equity is a cash or assignment conversation. Thin equity is where subject-to earns its keep. Cash, subto, seller-finance — and we can get a reno done if that is the path.</p>
+        <p class="kicker">Reserved on purpose</p>
+        <h2 class="h2">How the lists grow. Conservative, not crazy.</h2>
+        <p class="lede">These are conservative estimates. We would rather under-promise the next six months than invent a hockey stick.</p>
       </div>
-      <div class="grid-2">
+      <div class="grid-3">
         <div class="card win">
-          <h3>Fat equity</h3>
-          <p>Room for an assignment. The caller is not begging a seller to take a lowball so we can survive the fee.</p>
+          <h3>Now</h3>
+          <p>Daily pre-foreclosures from 370 counties, plus monthly code lists from hundreds of cities. Already more than three callers can work. We are barely touching them.</p>
         </div>
         <div class="card">
-          <h3>Thin equity</h3>
-          <p>Subject-to, seller-finance, or a reno if the house needs it. We do not throw those files away just because cash will not fit.</p>
+          <h3>As we add counties</h3>
+          <p>Opening the next ~50 pre-foreclosure doors is a bump — maybe ten to fifteen percent more files, not double. The ~240 parked counties stay parked until a wall actually moves.</p>
+        </div>
+        <div class="card">
+          <h3>As we add cities and states</h3>
+          <p>More code-violation cities answering is the steady monthly climb. Evictions, when those 19 counties run: a few hundred extra files a month, reserved. Pre-liens stay at zero in this picture until a driver exists. Probate stays the small list.</p>
         </div>
       </div>
+      <p class="caption">We do not need a spike for this to work. The flow we already have is the reason to start. Everything we add is upside.</p>
     </section>
 
     <section class="slide" data-slide="5">
       <span class="slide-num">06 / 12</span>
       <div>
         <p class="kicker">Proof, not theater</p>
-        <h2 class="h2">We have already done this without a machine behind us.</h2>
-        <p class="lede">Year one, part-time, subject-to: $250k. Marketing went back on for two days. Three contracts already, on lists we have barely touched. That is why we want callers on this now — not in a year.</p>
+        <h2 class="h2">Marketing went back on September 13.</h2>
+        <p class="lede">SMS blasts. We are barely touching these leads — only the people who reply. Putting callers on these lists would be insane. That is the whole point of talking.</p>
       </div>
       <div class="grid-2">
         <div class="card">
-          <h3>$250k year one</h3>
-          <p>Part-time. Subject-to. No 30-person floor. The data and the conversations were enough.</p>
+          <h3>Only the replies</h3>
+          <p>The lists are live. We have not even put a floor of callers on them. We are skimming inbound, and that is already enough to know the files are real.</p>
         </div>
         <div class="card win">
-          <h3>Two days. Three contracts.</h3>
-          <p>On lists we have barely worked. That is the part we cannot keep doing by ourselves if we also want the software finished.</p>
+          <h3>Callers would change the math</h3>
+          <p>A team that actually works these every day is a different business than two guys texting people who already wrote back. We want that to be your team.</p>
         </div>
       </div>
     </section>
@@ -299,22 +339,22 @@
       <span class="slide-num">07 / 12</span>
       <div>
         <p class="kicker">The handshake</p>
-        <h2 class="h2">Thirty days. Then we look at it together.</h2>
-        <p class="lede">You put up three callers and two closers. We put up the data and the software. No year-long trap on day one. After 30 days, you and I pick 3, 6, or 12 months — or we don’t.</p>
+        <h2 class="h2">Thirty days. No long-term decision on day one.</h2>
+        <p class="lede">We suggest <span class="em">3 callers and 2 closers</span> unless you want to put up more. We thought we would start there. After 30 days we pick 3, 6, or 12 months — and we decide if we expand the team, or we decide we do not work together.</p>
       </div>
       <div class="grid-3">
         <div class="card"><h3>Days 1–30</h3><p>Same team. Same lists. We see what actually closes. Not a spreadsheet guess.</p></div>
-        <div class="card win"><h3>Then we choose</h3><p>3, 6, or 12. You two pick it from what the month did. Nothing is locked before that.</p></div>
-        <div class="card"><h3>If it did not work</h3><p>We shake hands and stop. That is the point of 30 days.</p></div>
+        <div class="card win"><h3>Then we choose</h3><p>3, 6, or 12. We also decide whether to grow the team. We want to reinvest for max contracts per month.</p></div>
+        <div class="card"><h3>Or we don’t</h3><p>We shake hands and stop. Brandon doubts that — given your team and our data — but 30 days exists so nobody is guessing.</p></div>
       </div>
     </section>
 
     <section class="slide" data-slide="7">
       <span class="slide-num">08 / 12</span>
       <div>
-        <p class="kicker">Deal one</p>
-        <h2 class="h2">You get paid first.</h2>
-        <p class="lede">On the first wholesale assignment, your team fee comes off the top. Then you still take 10% of that assignment fee. You are covered before anyone else is.</p>
+        <p class="kicker">First 30 days</p>
+        <h2 class="h2">You get paid first. That month only, on deal one.</h2>
+        <p class="lede">You put up the team. On the first wholesale assignment we bring in during those 30 days, your team fee comes off the top, then you still take 10% of that assignment fee.</p>
       </div>
       <div class="grid-2">
         <div class="card win">
@@ -323,155 +363,75 @@
           <p>Three callers + two closers. Paid from deal one, first.</p>
         </div>
         <div class="card">
-          <h3>Then 10% of the fee</h3>
-          <p class="price math" style="margin-top:8px">+$1,500</p>
-          <p>On a $15,000 assignment. So deal one in your pocket is $5,070 + $1,500.</p>
+          <h3>Then 10% of that fee</h3>
+          <p class="price math pocket" style="margin-top:8px">$6,570</p>
+          <p>On a $15,000 assignment: $5,070 + $1,500. That is the total in your pocket on deal one.</p>
         </div>
       </div>
-      <p class="caption">Every deal after that in the 30 days still pays you 10% of the assignment fee. The $5,070 is how we make sure the first one covers the team you floated.</p>
+      <p class="caption">Every other deal we bring in that first month still pays you 10% of the assignment fee. This is good faith. We know this works. Paying you first is not an issue — there are plenty of deals. It is a 30-day run to see if the partnership makes sense. If we both show up, we want to run it and build a max team.</p>
     </section>
 
-    <section class="slide" data-slide="8">
+    <section class="slide pay" data-slide="8">
       <span class="slide-num">09 / 12</span>
       <div>
         <p class="kicker">If the 30 days work</p>
-        <h2 class="h2">We pay the team up front. Plus 10%.</h2>
-        <p class="lede">You are not waiting on deals to cover payroll. We pay the VA team at the start of each month, for 3, 6, or 12 months — whichever we lock. You also take 10% of every assignment fee we dispo. 10% of the fee, not of the house.</p>
+        <h2 class="h2" style="font-size:clamp(26px,3.4vw,40px)">We pay the team up front. Plus 10%.</h2>
+        <p class="caption" style="margin-top:8px">Ideally Brandon wants <strong style="color:#f4f4f5">6 months up front</strong>. If we absolutely crush it, we sign a year. He needs systems in place first. He does not think you end up on 3 months — it is on the page so we have the idea. Closers stay at 2 per 3 callers. Toggle how many closings each closer does; the whole table moves.</p>
       </div>
-      <div class="grid-3">
-        <div class="card win">
-          <h3>Base team, paid first of the month</h3>
-          <p class="price math" style="margin-top:8px">$5,070</p>
-          <p>3 callers + 2 closers. Scales when we add callers.</p>
+      <div class="rate-row">
+        <p>Closings per closer</p>
+        <div class="rate-toggles" id="rate-toggles" role="group" aria-label="Closings per closer">
+          <button class="chip" type="button" data-ppc="1">1</button>
+          <button class="chip is-on" type="button" data-ppc="2" aria-pressed="true">2</button>
+          <button class="chip" type="button" data-ppc="3">3</button>
         </div>
-        <div class="card">
-          <h3>Plus 10%</h3>
-          <p>Of every assignment fee. Every time we dispo. On top of the team money, not instead of it.</p>
-        </div>
-        <div class="card">
-          <h3>3 / 6 / 12</h3>
-          <p>We pick the lock together after the sprint. Closers stay at 2 per 3 callers as we grow.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide pay" data-slide="9">
-      <span class="slide-num">10 / 12</span>
-      <div>
-        <p class="kicker">Your money only</p>
-        <h2 class="h2" style="font-size:clamp(26px,3.4vw,40px)">What you make as the team grows.</h2>
-        <p class="caption" style="margin-top:10px">Your number: 5 contracts a month at 3 callers + 2 closers. Average assignment $15,000. Floor $10,000. 10% of the fee. We start at 3. Full-speed data can feed 30.</p>
       </div>
       <div class="table-wrap">
         <table class="pay-table">
           <thead>
             <tr>
-              <th>Callers / closers</th>
+              <th>Callers</th>
+              <th>Closers</th>
+              <th>Closings per closer</th>
+              <th>Deals</th>
               <th>Team, up front</th>
-              <th>Your 10% at $15k</th>
-              <th>Your 10% at $10k</th>
-              <th>Your month at $15k</th>
+              <th>10% at $10k</th>
               <th>Your month at $10k</th>
+              <th>10% at $15k</th>
+              <th>Your month at $15k</th>
             </tr>
           </thead>
-          <tbody>
-            <tr class="start">
-              <td>3 / 2</td>
-              <td>$5,070</td>
-              <td>$7,500</td>
-              <td>$5,000</td>
-              <td class="his">$12,570</td>
-              <td class="his">$10,070</td>
-            </tr>
-            <tr>
-              <td>6 / 4</td>
-              <td>$10,140</td>
-              <td>$15,000</td>
-              <td>$10,000</td>
-              <td class="his">$25,140</td>
-              <td class="his">$20,140</td>
-            </tr>
-            <tr>
-              <td>9 / 6</td>
-              <td>$15,210</td>
-              <td>$22,500</td>
-              <td>$15,000</td>
-              <td class="his">$37,710</td>
-              <td class="his">$30,210</td>
-            </tr>
-            <tr>
-              <td>12 / 8</td>
-              <td>$20,280</td>
-              <td>$30,000</td>
-              <td>$20,000</td>
-              <td class="his">$50,280</td>
-              <td class="his">$40,280</td>
-            </tr>
-            <tr>
-              <td>15 / 10</td>
-              <td>$25,350</td>
-              <td>$37,500</td>
-              <td>$25,000</td>
-              <td class="his">$62,850</td>
-              <td class="his">$50,350</td>
-            </tr>
-            <tr>
-              <td>18 / 12</td>
-              <td>$30,420</td>
-              <td>$45,000</td>
-              <td>$30,000</td>
-              <td class="his">$75,420</td>
-              <td class="his">$60,420</td>
-            </tr>
-            <tr>
-              <td>21 / 14</td>
-              <td>$35,490</td>
-              <td>$52,500</td>
-              <td>$35,000</td>
-              <td class="his">$87,990</td>
-              <td class="his">$70,490</td>
-            </tr>
-            <tr>
-              <td>24 / 16</td>
-              <td>$40,560</td>
-              <td>$60,000</td>
-              <td>$40,000</td>
-              <td class="his">$100,560</td>
-              <td class="his">$80,560</td>
-            </tr>
-            <tr>
-              <td>27 / 18</td>
-              <td>$45,630</td>
-              <td>$67,500</td>
-              <td>$45,000</td>
-              <td class="his">$113,130</td>
-              <td class="his">$90,630</td>
-            </tr>
-            <tr>
-              <td>30 / 20</td>
-              <td>$50,700</td>
-              <td>$75,000</td>
-              <td>$50,000</td>
-              <td class="his">$125,700</td>
-              <td class="his">$100,700</td>
-            </tr>
-          </tbody>
+          <tbody id="pay-body"></tbody>
         </table>
       </div>
-      <p class="note">Team fee is paid at the start of the month. 10% is on top, every time we dispo.</p>
+      <p class="note">Team fee is paid at the start of the month after we lock. 10% is on top, every time we dispo. Green is your month. Floor $10,000 · average $15,000. Start is 3 callers / 2 closers.</p>
+    </section>
+
+    <section class="slide" data-slide="9">
+      <span class="slide-num">10 / 12</span>
+      <div>
+        <p class="kicker">Why you · why we stay</p>
+        <h2 class="h2">We could hire our own team. It would stall everything that actually makes us money.</h2>
+        <p class="lede">The data is good enough that we could stand up a floor in six months and get by. We do not specialize in being a VA, or in training VAs. We specialize in acquisitions, underwriting, closing, getting deals sold, and data. Your team takes over a piece of that. The hard part is training people who understand this industry, and we do not want to build that.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card win"><h3>We want you</h3><p>We are talking to a few teams. We want this one. We do not want to wait another week or another month.</p></div>
+        <div class="card"><h3>Why we stay partners</h3><p>Every month we spend trying to specialize in something we could hand to someone like you pushes both teams back. We scale faster if each of us stays on what we are great at.</p></div>
+        <div class="card"><h3>Software and sales keep moving</h3><p>If we divert into hiring and training, the lists slow down and the deals slow down. That helps nobody in this room.</p></div>
+      </div>
     </section>
 
     <section class="slide" data-slide="10">
       <span class="slide-num">11 / 12</span>
       <div>
-        <p class="kicker">Why you</p>
-        <h2 class="h2">We could hire our own team in six months. It would stall the software.</h2>
-        <p class="lede">We would rather put this in your hands. We are talking to three other shops — Runit Remote, a team in the Philippines, a team in Central America. We want you.</p>
+        <p class="kicker">Fair, and how it runs</p>
+        <h2 class="h2">Your guys work it. We sell it. We can jump in if we have to.</h2>
+        <p class="lede">We have a disposition track record — top software seats with InvestorBase and InvestorLift, and our own private buyers list built over two years. Large networking groups. Deals sold in 72 hours or less.</p>
       </div>
       <div class="grid-3">
-        <div class="card win"><h3>You already have the people</h3><p>Callers and closers who do this for a living. We would be starting from zero, and the lists would sit.</p></div>
-        <div class="card"><h3>We stay on the product</h3><p>Every month we spend hiring is a month the data is not at full speed. That helps neither of us.</p></div>
-        <div class="card"><h3>Fair on both sides</h3><p>You float the sprint. We float the lists. After that, we pay the team before the month starts. Nobody is waiting on a maybe.</p></div>
+        <div class="card win"><h3>Ideally</h3><p>Your guys call, underwrite, and close. We take overflow and sell fast. We provide the data, they reach out, we sell. Everybody’s happy.</p></div>
+        <div class="card"><h3>We still double-check</h3><p>We will always review underwriting. If a file needs us on the close, we can jump in. That is backup, not a second floor competing with yours.</p></div>
+        <div class="card"><h3>Same goal</h3><p>Contracts that actually fund. Not a rented skip list and a prayer. Data in, conversations out, buyers ready.</p></div>
       </div>
     </section>
 
@@ -479,11 +439,13 @@
       <span class="slide-num">12 / 12</span>
       <div>
         <p class="kicker">Next</p>
-        <h1 class="h1">Whenever you are ready.</h1>
-        <p class="lede">A login to the software, or an export of a list. You look at it the same way you would look at any file before you put callers on it. Then we start the 30 days.</p>
-        <p style="margin-top:32px;font-size:22px;font-weight:700">Brandon Wunder</p>
+        <h1 class="h1">We partner up and start closing deals like madmen.</h1>
+        <p class="lede">We have both worked extremely hard. We deserve to take care of our families with true and honest partners who want the same thing. Brad and I are looking forward to working with you and would love to get this started.</p>
+        <p class="caption">We believe in our product. We have a massive advantage over others you could work with, and you have a massive advantage over anyone we could work with. Trust and first impression matter here. We could go cheaper, or to a referred VA shop with a wholesaler track record. We feel you are the partnership we want.</p>
+        <p style="margin-top:28px;font-size:22px;font-weight:700">Brandon Wunder</p>
         <p style="color:var(--muted);margin-top:6px">Phuglee Data</p>
         <p style="margin-top:14px"><a href="mailto:brandon@wunderhausgroup.com">brandon@wunderhausgroup.com</a></p>
+        <p class="note">Questions — reach back out to Brandon.</p>
       </div>
       <div class="foot">
         <img class="logo" src="phuglee-text-logo.png" alt="">
@@ -496,6 +458,48 @@
   <div class="dots" id="dots"></div>
 
   <script>
+    const TEAM_AT_3 = 5070;
+    const CALLERS = [3, 6, 9, 12, 15, 18, 21, 24, 27, 30];
+    const money = (n) => "$" + Math.round(n).toLocaleString("en-US");
+
+    function fillPayTable(ppc) {
+      const body = document.getElementById("pay-body");
+      if (!body) return;
+      body.innerHTML = CALLERS.map((callers, idx) => {
+        const scale = callers / 3;
+        const closers = 2 * scale;
+        const deals = closers * ppc;
+        const team = TEAM_AT_3 * scale;
+        const ten10 = deals * 10000 * 0.1;
+        const ten15 = deals * 15000 * 0.1;
+        return `<tr class="${idx === 0 ? "start" : ""}">
+          <td>${callers}</td>
+          <td>${closers}</td>
+          <td>${ppc}</td>
+          <td>${deals}</td>
+          <td>${money(team)}</td>
+          <td>${money(ten10)}</td>
+          <td class="his">${money(team + ten10)}</td>
+          <td>${money(ten15)}</td>
+          <td class="his">${money(team + ten15)}</td>
+        </tr>`;
+      }).join("");
+    }
+
+    let ppc = 2;
+    const rateBtns = [...document.querySelectorAll("#rate-toggles [data-ppc]")];
+    function setPpc(n) {
+      ppc = n;
+      rateBtns.forEach((b) => {
+        const on = Number(b.dataset.ppc) === n;
+        b.classList.toggle("is-on", on);
+        b.setAttribute("aria-pressed", String(on));
+      });
+      fillPayTable(n);
+    }
+    rateBtns.forEach((b) => b.addEventListener("click", () => setPpc(Number(b.dataset.ppc))));
+    setPpc(2);
+
     const slides = [...document.querySelectorAll(".slide")];
     const body = document.body;
     const btnReview = document.getElementById("btn-review");
